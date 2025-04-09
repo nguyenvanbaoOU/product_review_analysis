@@ -1,6 +1,6 @@
 from flask import Flask, request as rq
 import lazop_sdk as lazop
-
+import os
 app = Flask(__name__)
 
 @app.route("/")
@@ -20,5 +20,5 @@ def callback():
     return response.body
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
